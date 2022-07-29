@@ -13,8 +13,6 @@ public class CameraRotateController
 
     public void CameraRotate()
     {
-        Debug.Log("Камера повернулась");
         _cameraView.Camera.transform.localRotation = Quaternion.Euler(-_mouseModel.MouseY, 0, 0);
     }
-
 }

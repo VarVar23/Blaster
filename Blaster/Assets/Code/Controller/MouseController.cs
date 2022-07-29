@@ -20,15 +20,18 @@ public class MouseController : IControllerUpdate
 
         _mouseModel.MouseY = Mathf.Clamp(_mouseModel.MouseY, _mouseSO.MinY, _mouseSO.MaxY);
 
-        Debug.Log(_mouseModel.MouseX);
         if(_oldMouseX != _mouseModel.MouseX || _oldMouseY != _mouseModel.MouseY)
         {
             _mouseModel.MouseMove.Invoke();
 
             _oldMouseX = _mouseModel.MouseX;
             _oldMouseY = _mouseModel.MouseY;
+        }
 
-            Debug.Log("Сработал метод движения мыши");
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            _mouseModel.MouseClick.Invoke();
         }
     }
 }
